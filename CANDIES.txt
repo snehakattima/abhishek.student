@@ -1,0 +1,28 @@
+def max_candies():
+    import sys
+    input = sys.stdin.read
+    data = input().splitlines()
+
+    # Read the number of candies
+    n = int(data[0])  # number of candies
+    # Read the prices of the candies
+    prices = list(map(int, data[1].split()))  # prices of candies
+    # Read the amount of money the user has
+    money = int(data[2])  # available money
+
+    # Sort the prices in ascending order
+    prices.sort()
+
+    count = 0  # Number of candies that can be bought
+    for price in prices:
+        if money >= price:
+            money -= price  # Reduce the money by the price of the candy
+            count += 1  # Increment the count of candies bought
+        else:
+            break  # No more money to buy further candies
+
+    # Print the total number of candies bought
+    print(count)
+
+# Example usage
+max_candies()
